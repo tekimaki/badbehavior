@@ -1,5 +1,14 @@
 <?php
 
+$gBitSystem->registerPackageInfo( BADBEHAVIOR_PKG_NAME, array(
+		 'description' => "<a href=\"http://www.bad-behavior.ioerror.us/\">Bad Behavior</a> analyzes how people are using the site in order to try to prevent spammers from posting.",
+		'license' => '<a href="http://www.gnu.org/licenses/licenses.html#GPL">GPL</a>',
+		) );
+
+// Install process
+global $gBitInstaller;
+if( is_object( $gBitInstaller ) ){
+
 $tables = array(
 	// The auto on this sucks but it is a library so I am ignoring it.
 	'badbehavior' => '
@@ -22,11 +31,6 @@ foreach( array_keys( $tables ) AS $tableName ) {
     $gBitInstaller->registerSchemaTable( BADBEHAVIOR_PKG_NAME, $tableName, $tables[$tableName] );
 }
 
-$gBitInstaller->registerPackageInfo( BADBEHAVIOR_PKG_NAME, array(
-		 'description' => "<a href=\"http://www.bad-behavior.ioerror.us/\">Bad Behavior</a> analyzes how people are using the site in order to try to prevent spammers from posting.",
-		'license' => '<a href="http://www.gnu.org/licenses/licenses.html#GPL">GPL</a>',
-		) );
-
 $indices = array (
 	'ip_idx' => array( 'table' => 'badbehavior', 'cols' => 'ip', 'opts' => NULL ),
 	);
@@ -37,4 +41,4 @@ $gBitInstaller->registerUserPermissions( BADBEHAVIOR_PKG_NAME, array(
 		array('p_badbehavior_admin', 'Can admin bad behavior', 'admin', BADBEHAVIOR_PKG_NAME ),
 		));
 
-?>
+}
