@@ -34,7 +34,7 @@ foreach( array_keys( $tables ) AS $tableName ) {
 $indices = array (
 	'ip_idx' => array( 'table' => 'badbehavior', 'cols' => 'ip', 'opts' => NULL ),
 	);
-$gBitInstaller->registerSchemaIndexes( LIBERTY_PKG_NAME, $indices );
+$gBitInstaller->registerSchemaIndexes( BADBEHAVIOR_PKG_NAME, $indices );
 
 // ### Default UserPermissions
 $gBitInstaller->registerUserPermissions( BADBEHAVIOR_PKG_NAME, array(

@@ -26,3 +26,9 @@ badbehavior:
     p_badbehavior_admin: 
       description: Can admin bad behavior
       level: admin
+
+  indexes: 
+    ip_idx:
+      table: badbehavior
+      cols: ip
+      opts: 
